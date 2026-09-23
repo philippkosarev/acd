@@ -92,15 +92,15 @@ def read(fp, encryption_key: bytes) -> dict:
     key_len = int.from_bytes(key_len, byteorder='little')
     key = fp.read(key_len)
     if len(key) != key_len:
-      raise EOFError('Expected EOF while reading key')
+      raise EOFError('Unexpected EOF while reading key')
     key = key.decode('utf-8')
     value_len = fp.read(4)
     if not value_len:
-      raise EOFError('Expected EOF while reading value len')
+      raise EOFError('Unexpected EOF while reading value len')
     value_len = int.from_bytes(value_len, byteorder='little') * 4
     value = fp.read(value_len)
     if len(value) != value_len:
-      raise EOFError('Expected EOF while reading value')
+      raise EOFError('Unexpected EOF while reading value')
     value = _decrypt_bytes(value, encryption_key)
     sections[key] = value.decode('utf-8')
   return sections
