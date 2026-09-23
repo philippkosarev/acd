@@ -17,11 +17,11 @@ except ModuleNotFoundError:
 from . import acd
 
 
-def _bold(s: str) -> str:
-  """Wraps the string in ANSII escape codes so it appears bold in the
+def _bold(text: str) -> str:
+  """Wraps the text in ANSI SGR escape codes so it appears bold in the
   terminal.
   """
-  return f'\x1b[1m{s}\x1b[22m'
+  return f'\x1b[1m{text}\x1b[22m'
 
 
 def _to_columns(items: list) -> str:
@@ -35,13 +35,13 @@ def _to_columns(items: list) -> str:
   rows = [[] for i in range(n_rows)]
   for i, item in enumerate(items):
     j = i % n_rows
-    item = f'{prefix}{item:<{column_width}}'
+    item = prefix + item.ljust(column_width)
     rows[j].append(item)
   text = '\n'.join([''.join(r).rstrip() for r in rows])
   return text
 
 
-def _select(title: str, items: list, prompt: str) -> str or None:
+def _select(title: str, items: list, prompt: str) -> str|None:
   """Asks the user to select one item from a list."""
   # Creating the prompt
   title = _bold(title + ':')
@@ -67,8 +67,8 @@ def _read_file(file) -> str:
     return fp.read()
 
 
-def _write_file(value: str, file):
-  with open(file, 'w') as fp:
+def _write_file(value: bytes, file):
+  with open(file, 'wb') as fp:
     fp.write(value)
 
 
@@ -77,7 +77,6 @@ _error_messages = {
   FileExistsError: 'already exists',
   IsADirectoryError: 'not a file',
   PermissionError: 'permission denied',
-  UnicodeDecodeError: 'invalid encoding',
   EOFError: 'unexpected end of file',
 }
 
@@ -120,7 +119,12 @@ def view(parser, filename: str, item: str = None):
     value = data.get(item)
     if value is None:
       parser.error(f'{filename}: {item}: no such item')
-  print(value.strip())
+  try:
+    value = value.decode()
+  except UnicodeDecodeError:
+    parser.error(f'{filename}: {item}: invalid text encoding')
+  value = value.strip()
+  print(value)
 
 
 def pack(parser, directory: str, filename: str):
