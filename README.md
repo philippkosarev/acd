@@ -12,7 +12,7 @@ A stable version should be coming soon.
 You can find the documentation for the library [here](https://philippkosarev.github.io/acd/).
 
 ## Notes about the .acd file format
-- .acd files do not have any kind of header or magic number, so it's impossible to check whether a given file is actualy a .acd file, without attempting to read it.
+- Most .acd files do not have a signature, so it's usually impossible to check whether a given file is actualy a .acd file without attempting to read it.
 - Moving or renaming a .acd file can make it impossible to decrypt because the encryption key is generated based on either the basename or dirname of the specific file (see the [docs](https://philippkosarev.github.io/acd/acd.get_encryption_key_for_string) for a more in-depth explanation).
 
 ## Using the CLI
