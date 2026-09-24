@@ -9,15 +9,11 @@ Python module for reading and writing Assetto Corsa Data (.acd) files.
 Installation
 ------------
 
-To install the in-development version you can run the following:
+The project is available on `PyPI <https://pypi.org/project/acd.py/>`_ and can be installed using pip:
 
-.. code-block::
+.. code-block:: sh
 
-  pip install git+https://github.com/philippkosarev/acd.py.git
-
-.. note::
-
-  A stable version should be coming soon.
+  pip install acd.py
 
 
 Examples
