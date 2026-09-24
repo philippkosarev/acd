@@ -1,4 +1,4 @@
-"""A utility for working with Assetto Corsa Data (.acd) files."""
+"""Pack and unpack Assetto Corsa Data (.acd) files."""
 
 # Imports
 import os
@@ -41,7 +41,7 @@ def _to_columns(items: list) -> str:
   return text
 
 
-def _select(title: str, items: list, prompt: str) -> str|None:
+def _select(title: str, items: list, prompt: str) -> str or None:
   """Asks the user to select one item from a list."""
   # Creating the prompt
   title = _bold(title + ':')
@@ -182,13 +182,11 @@ def main(args: list = None) -> int:
   """Runs the CLI and returns the exit code."""
   args = tuple(vars(main_parser.parse_args(args)).values())
   command, args = args[0], args[1:]
-  match command:
-    case 'view':
-      function, parser = view, view_parser
-    case 'pack':
-      function, parser = pack, pack_parser
-    case 'unpack':
-      function, parser = unpack, unpack_parser
+  function, parser = {
+    'view': (view, view_parser),
+    'pack': (pack, pack_parser),
+    'unpack': (unpack, unpack_parser),
+  }[command]
   return function(parser, *args) or 0
 
 
