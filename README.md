@@ -1,19 +1,22 @@
-# acd
-A Python library and CLI for reading and writing Assetto Corsa Data (.acd) files.
+# acd.py
+Python module for reading and writing Assetto Corsa Data (.acd) files.
+
+## Documentation
+You can find the documentation for the library [here](https://philippkosarev.github.io/acd.py).
 
 ## Installation
 To install the in-development version, run the following:
 ```sh
-pip install git+https://github.com/philippkosarev/acd.git
+pip install git+https://github.com/philippkosarev/acd.py.git
 ```
 A stable version should be coming soon.
 
-## Documentation
-You can find the documentation for the library [here](https://philippkosarev.github.io/acd/).
-
 ## Notes about the .acd file format
 - Most .acd files do not have a signature, so it's usually impossible to check whether a given file is actualy a .acd file without attempting to read it.
-- Moving or renaming a .acd file can make it impossible to decrypt because the encryption key is generated based on either the basename or dirname of the specific file (see the [docs](https://philippkosarev.github.io/acd/acd.get_encryption_key_for_string) for a more in-depth explanation).
+- Moving or renaming a .acd file can make it impossible to decrypt because the encryption key is generated based on either the basename or dirname of the specific file (see the [docs](https://philippkosarev.github.io/acd.py/acd.get_encryption_key_for_string) for a more in-depth explanation).
+
+## Using the library
+See the [documentation](https://philippkosarev.github.io/acd.py) for examples on how to use the library.
 
 ## Using the CLI
 The acd CLI provides only 3 commands: `view`, `unpack` and `pack`. The names of the commands are pretty self-explanatory, but this is how they work in action:

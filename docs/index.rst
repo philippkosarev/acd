@@ -1,9 +1,9 @@
-https://github.com/philippkosarev/acd
+https://github.com/philippkosarev/acd.py
 
-acd
-===
+acd.py
+======
 
-A Python library and CLI for reading and writing Assetto Corsa Data (.acd) files.
+Python module for reading and writing Assetto Corsa Data (.acd) files.
 
 
 Installation
@@ -13,7 +13,7 @@ To install the in-development version you can run the following:
 
 .. code-block::
 
-  pip install git+https://github.com/philippkosarev/acd.git
+  pip install git+https://github.com/philippkosarev/acd.py.git
 
 .. note::
 

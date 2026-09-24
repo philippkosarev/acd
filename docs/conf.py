@@ -10,7 +10,7 @@ module_dir = script_dir.parent
 sys.path.append(str(module_dir))
 
 # Project information
-project = 'acd'
+project = 'acd.py'
 copyright = '2026, Philipp Kosarev'
 author = 'Philipp Kosarev'
 

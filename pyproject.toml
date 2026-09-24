@@ -1,6 +1,6 @@
 [project]
-name = "acd"
-description = "A library and CLI for reading and writing Assetto Corsa Data (.acd) files."
+name = "acd.py"
+description = "Python module for reading and writing Assetto Corsa Data (.acd) files."
 version = "0.0.1"
 
 readme = "README.md"
@@ -20,10 +20,10 @@ name = "Philipp Kosarev"
 email = "philipp.kosarev@gmail.com"
 
 [project.urls]
-homepage = "https://github.com/philippkosarev/acd"
-source = "https://github.com/philippkosarev/acd"
-issues = "https://github.com/philippkosarev/acd/issues"
-documentation = "https://philippkosarev.github.io/acd"
+homepage = "https://github.com/philippkosarev/acd.py"
+source = "https://github.com/philippkosarev/acd.py"
+issues = "https://github.com/philippkosarev/acd.py/issues"
+documentation = "https://philippkosarev.github.io/acd.py"
 
 [project.scripts]
 acd = "acd.cli:main"

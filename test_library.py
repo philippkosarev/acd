@@ -10,7 +10,6 @@ script_dir = script_file.parent
 os.chdir(script_dir)
 
 # Checking the environment
-assert Path.cwd().name.lower() == 'acd'
 assert (Path.cwd() / 'acd').is_dir()
 
 # Importing the library
